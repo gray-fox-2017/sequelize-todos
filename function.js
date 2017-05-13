@@ -14,7 +14,9 @@ function add(object) {
 }
 
 function list() {
-  db.Todo.findAll()
+  db.Todo.findAll({
+    order: [['createdAt', 'ASC']]
+  })
   .then(todos => {
     todos.forEach(todo => {
       let mark = " ";
@@ -35,8 +37,16 @@ function find(val) {
   .catch(err => {console.log(err)})
 }
 
-function completed() {
-  db.Todo.findAll({where: {completed: true}})
+function completed(option) {
+  if(option == undefined) {
+    var ord = "ASC"
+  } else {
+    var ord = option.toUpperCase();
+  }
+  db.Todo.findAll({where: {completed: true},
+      order: [['createdAt', `${ord}`]]
+    }
+  )
   .then(todos => {
     if(todos) {
       todos.forEach(todo => {
@@ -51,8 +61,16 @@ function completed() {
   .catch(err => {console.log(err)})
 }
 
-function uncompleted() {
-  db.Todo.findAll({where: {completed: false}})
+function uncompleted(option) {
+  if(option == undefined) {
+    var ord = "ASC"
+  } else {
+    var ord = option.toUpperCase();
+  }
+  db.Todo.findAll({where: {completed: false},
+      order: [['createdAt', `${ord}`]]
+    }
+  )
   .then(todos => {
     if(todos) {
       todos.forEach(todo => {
@@ -94,10 +112,12 @@ function addTag(id, value) {
 function filter(value) {
   db.Todo.findAll({where: {'tag': {$like: `%${value}%`}}})
   .then(todos => {
+    let count = 1;
     todos.forEach(todo => {
       let mark = " ";
       if(todo.completed) mark = "V"
-      console.log(`${todo.id}. [${mark}] ${todo.task} (${todo.tag})`)
+      console.log(`${count}. [${mark}] ${todo.task} (${todo.tag})`)
+      count++;
     })
   })
   .catch(err => {console.log(err)})
