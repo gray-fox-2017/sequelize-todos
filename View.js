@@ -46,10 +46,10 @@ listView(tasks){
   this.clean()
   tasks.forEach((task)=>{
     if(task.iscomplete === true){
-    console.log(`${task.id} [X] ${task.task}`);
+    console.log(`${task.id}. [X] ${task.task}`);
     }
     else{
-      console.log(`${task.id} [ ] ${task.task}`);
+      console.log(`${task.id}. [ ] ${task.task}`);
     }
     })
   }
@@ -67,10 +67,10 @@ taskView(task){
   tagView(tag1,tag2,task){
     this.clean()
     if(!tag2){
-      console.log(`'${tag1}' tag Added to ${task}!`);
+      console.log(`'Tagging task '${task}' with tag: ${tag1}`);
     }
     else{
-      console.log(`'${tag1}' and '${tag2}' tags Added to ${task}!`);
+      console.log(`'Tagging task '${task}' with tags: ${tag1}, ${tag2}`);
     }
   }
   
