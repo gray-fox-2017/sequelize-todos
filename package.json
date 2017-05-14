@@ -1,17 +1,17 @@
 {
-  "name": "sequelize-todos-part-1-challenge",
+  "name": "sequelize-todos",
   "version": "1.0.0",
   "description": "Todos Application using Sequelize",
   "main": "todo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Your Name",
+  "author": "raynormw",
   "license": "ISC",
   "dependencies": {
-    "pg": "^6.0.3",
+    "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^3.23.6"
+    "sequelize": "^3.30.4"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
