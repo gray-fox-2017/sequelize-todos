@@ -34,7 +34,7 @@ class Controller {
         this.view.list(task)
       })
 
-      case 'task' : this.model.task((data)=> {
+      case 'task' : this.model.task(this.input[3], (data)=> {
         this.view.task(data)
       }); break
 

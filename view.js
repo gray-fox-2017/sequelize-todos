@@ -48,22 +48,24 @@ class View {
   }
 
   complete(task){
+    this.clean()
     console.log(`${task} is completed`);
   }
 
   uncompleted(task){
+    this.clean()
     console.log(`${task} is uncomplete`);
   }
 
-  task(tasks){
+  task(task){
     this.clean()
-    tasks.forEach((task)=> {
+    //tasks.forEach((task)=> {
       if(task.status === true){
         console.log(`ID : ${task.id} | task : ${task.task} | status : is completed! | Tag : ${task.tag}`);
       } else {
         console.log(`ID : ${task.id} | task : ${task.task} | status : is completed! | Tag : ${task.tag}`);
       }
-    })
+    //})
   }
 
   tag(tag1, tag2, task){

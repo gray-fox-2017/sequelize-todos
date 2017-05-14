@@ -78,7 +78,7 @@ class Model {
     })
   }
 
-  taskList(id, callback){
+  task(id, callback){
     this.db.Todo.findOne({
       where: {
         id: id
@@ -165,4 +165,4 @@ class Model {
   }
 }
 
-export default Model; 
+export default Model;
