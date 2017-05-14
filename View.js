@@ -27,19 +27,19 @@ addView(task,id){
   }
 
 
-deleteView(taskID){
+deleteView(task){
   this.clean()
-  console.log(`Todo with ID:${taskID} Deleted!`);
+  console.log(`${task} Deleted!`);
   }
   
-completeView(taskID){
+completeView(task){
   this.clean()
-  console.log(`Todo with ID:${taskID} completed!`);
+  console.log(`${task} Completed!`);
   }
   
-uncompleteView(taskID){
+uncompleteView(task){
   this.clean()
-  console.log(`Todo with ID ${taskID} uncompleted!`);
+  console.log(`${task} Uncompleted!`);
   }    
 
 listView(tasks){
@@ -64,13 +64,13 @@ taskView(task){
     }
   }
   
-  tagView(tag1,tag2,id){
+  tagView(tag1,tag2,task){
     this.clean()
     if(!tag2){
-      console.log(`${tag1} Added! to Todo with ID: ${id}`);
+      console.log(`'${tag1}' tag Added to ${task}!`);
     }
     else{
-      console.log(`${tag1} and ${tag2} Added! to Todo with ID: ${id}`);
+      console.log(`'${tag1}' and '${tag2}' tags Added to ${task}!`);
     }
   }
   

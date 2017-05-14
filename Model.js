@@ -5,7 +5,6 @@ class Model{
   }
 
 list(callback){
-  let list = ''
   this.db.todo.findAll()
   .then(todos=>{
     return callback(todos)
@@ -23,13 +22,18 @@ add(input,callback){
 }
 
 deleteTask(id,callback){
-  this.db.todo.destroy({
+  this.db.todo.findOne({
     where:{
       id:id
     }
   })
-  .then(taskID=>{
-    callback(taskID)
+  .then(task=>{
+    callback(task.task)
+    this.db.todo.destroy({
+      where:{
+        id:id
+      }
+    })
   })
 }
 
@@ -42,7 +46,14 @@ completeTask(id,callback){
     }
   })
   .then(data=>{
-    callback(id)
+    this.db.todo.findOne({
+      where:{
+        id:id
+      }
+      })
+      .then(task=>{
+        callback(task.task)
+      })
     })
   } 
   
@@ -55,14 +66,14 @@ uncompleteTask(id,callback) {
     }
   })
   .then(data=>{
-    callback(id)
-    })
-  }
-  
-  listTasks(callback){
-    this.db.todo.findAll()
-    .then(tasks=>{
-      callback(tasks)
+    this.db.todo.findOne({
+      where:{
+        id:id
+      }
+      })
+      .then(task=>{
+        callback(task.task)
+      })
     })
   }
   
@@ -109,7 +120,14 @@ uncompleteTask(id,callback) {
       }
       })
       .then(task=>{
-        callback(tag1,tag2)
+        this.db.todo.findOne({
+          where:{
+            id:id
+          }
+        })
+        .then(task=>{
+              callback(tag1,tag2,task.task)
+        })    
       })
     }
     else{
@@ -121,7 +139,14 @@ uncompleteTask(id,callback) {
         }
       })
       .then(task=>{
-        callback(tag1,tag2)
+        this.db.todo.findOne({
+          where:{
+            id:id
+          }
+        })
+        .then(task=>{
+          callback(tag1,tag2,task.task)
+        })      
       })
     }
   }

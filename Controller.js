@@ -16,19 +16,19 @@ class Controller{
         this.view.addView(task,id);
       });break
       
-      case 'delete': this.model.deleteTask(this.input[3],(taskID=>{
-        this.view.deleteView(taskID)
+      case 'delete': this.model.deleteTask(this.input[3],(task=>{
+        this.view.deleteView(task)
       }));break
       
-      case 'complete': this.model.completeTask(this.input[3],(taskID=>{
-        this.view.completeView(taskID)
+      case 'complete': this.model.completeTask(this.input[3],(task=>{
+        this.view.completeView(task)
       }));break
       
-      case 'uncomplete': this.model.uncompleteTask(this.input[3],(taskID=>{
-        this.view.uncompleteView(taskID)
+      case 'uncomplete': this.model.uncompleteTask(this.input[3],(task=>{
+        this.view.uncompleteView(task)
       }));break
        
-      case 'list': this.model.listTasks(tasks=>{
+      case 'list': this.model.list(tasks=>{
         this.view.listView(tasks)
       });break
       
@@ -44,12 +44,12 @@ class Controller{
         this.view.listView(tasks)
       });break 
       
-      case 'tag': this.model.tagTask(this.input[3],this.input[4],this.input[5],(tag1,tag2)=>{
-        this.view.tagView(tag1,tag2,this.input[3])
+      case 'tag': this.model.tagTask(this.input[3],this.input[4],this.input[5],(tag1,tag2,task)=>{
+        this.view.tagView(tag1,tag2,task)
       });break
       
-      case 'filter': this.model.filterTag(this.input[3],(tasks=>{
-        this.view.filterView(tasks,this.input[3])
+      case 'filter': this.model.filterTag(this.input[3],(tasks,task=>{
+        this.view.filterView(tasks,task)
       }));break
       
       default: this.view.helpView();break
