@@ -1,3 +1,7 @@
-'use strict';
+'use strict'
+import Controller from './Controller.js'
 
-//write your code here
+let argv = process.argv
+let start = new Controller(argv)
+start.run()
+
