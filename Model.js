@@ -135,7 +135,7 @@ uncompleteTask(id,callback) {
       }
     })
     .then(tasks=>{
-      callback(tasks[0].task)
+      callback(tasks)
       })
     }    
 }

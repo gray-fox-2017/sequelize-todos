@@ -48,8 +48,8 @@ class Controller{
         this.view.tagView(tag1,tag2,this.input[3])
       });break
       
-      case 'filter': this.model.filterTag(this.input[3],(task=>{
-        this.view.filterView(task,this.input[3])
+      case 'filter': this.model.filterTag(this.input[3],(tasks=>{
+        this.view.filterView(tasks,this.input[3])
       }));break
       
       default: this.view.helpView();break

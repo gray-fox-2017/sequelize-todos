@@ -74,9 +74,12 @@ taskView(task){
     }
   }
   
-  filterView(task,tag){
+  filterView(tasks,tag){
     this.clean()
-    console.log(`${task} [${tag}]`);
+    tasks.forEach(task=>{
+      console.log(`${task.task} [${tag}]`);
+    })
+  
   }
   
   clean(){
