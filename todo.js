@@ -1,3 +1,6 @@
-'use strict';
+const Controller = require('./controller');
 
-//write your code here
+
+var controller = new Controller()
+
+controller.init();
